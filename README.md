@@ -1,5 +1,5 @@
 # Lab08-LINQ
-=============================================
+
 ## Introduction
 Contained in the program is a JSON file that holds locaiton information for properties within Manhattan.
 
@@ -18,11 +18,11 @@ Contained in the program is a JSON file that holds locaiton information for prop
 =============================================
 ## Visuals
 
-- Shows sample of all strings associated with the sorting of the data. Shown is empty strings that will be sorted out in following steps. 
+#### Shows sample of all strings associated with the sorting of the data. Shown is empty strings that will be sorted out in following steps. 
 ![AllOutput](https://github.com/RevYolution/Lab08-LINQ/blob/master/assets/AllHoodsOutput.PNG)
 
-- Shows sample of empty strings removed however, duplicate neighborhoods are still present. 
+#### Shows sample of empty strings removed however, duplicate neighborhoods are still present. 
 ![EmptyStringsRemoved](https://github.com/RevYolution/Lab08-LINQ/blob/master/assets/NoEmptyOutput.PNG)
 
-- Shows all empty and duplicate data removed. 
+#### Shows all empty and duplicate data removed. 
 ![SingleNeighborhoods](https://github.com/RevYolution/Lab08-LINQ/blob/master/assets/NoDupsOutput.PNG)
