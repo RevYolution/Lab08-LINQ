@@ -13,13 +13,18 @@ namespace LINQ
         public static readonly string filePath = "../data.json";
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine();
-            OutPutRefac();
-            //Test();
+            Console.WriteLine("Neighborhoods of Manhattan");
+            Console.WriteLine("========================");
+            //AllHoods();
+            //NoEmptyStrings();
+            OnlyDistinct();
+            //OutPutRefac();
         }
 
-        static void OutPut()
+        /// <summary>
+        /// Outputs all neighborhoods from JSON data file
+        /// </summary>
+        static void AllHoods()
         {
             using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
 
@@ -31,9 +36,55 @@ namespace LINQ
                 var postDaHood =
                              from p in o["features"]
                              select (string)p["properties"]["neighborhood"];
+
+                foreach (var item in postDaHood)
+                {
+                    Console.WriteLine(item);
+                }
+
+
+            }
+        }
+
+        /// <summary>
+        /// Outputs all neighborhoods of Manhattan data without empty string data. 
+        /// </summary>
+        static void NoEmptyStrings()
+        {
+            using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
+
+            {
+                JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
+
+                var postDaHood =
+                             from p in o["features"]
+                             select (string)p["properties"]["neighborhood"];
                 IEnumerable<string> notEmpty = postDaHood.Where(hood => hood != "");
 
-                IEnumerable<string> noDups = notEmpty.Distinct(); 
+                foreach (var item in notEmpty)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Outputs all neighborhoods of Manhattan data without duplication
+        /// </summary>
+        static void OnlyDistinct()
+        {
+            using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
+
+            {
+                JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
+
+                var postDaHood =
+                             from p in o["features"]
+                             select (string)p["properties"]["neighborhood"];
+                IEnumerable<string> notEmpty = postDaHood.Where(hood => hood != "");
+
+                IEnumerable<string> noDups = notEmpty.Distinct();
 
                 foreach (var item in noDups)
                 {
@@ -42,6 +93,9 @@ namespace LINQ
             }
         }
 
+        /// <summary>
+        /// Chains the previous methods together 
+        /// </summary>
         static void OutPutRefac()
         {
             using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
