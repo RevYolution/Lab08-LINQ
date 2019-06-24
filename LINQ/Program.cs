@@ -70,7 +70,7 @@ namespace LINQ
         }
 
         /// <summary>
-        /// Outputs all neighborhoods of Manhattan data without duplication
+        /// Outputs all neighborhoods of Manhattan data without duplication of neighborhoods. 
         /// </summary>
         static void OnlyDistinct()
         {
@@ -102,17 +102,12 @@ namespace LINQ
 
             {
                 JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
-                //Console.WriteLine($"{o}");
-                //Console.ReadLine();
-
                 var postDaHood =
                              from p in o["features"]
                              select (string)p["properties"]["neighborhood"];
-                IEnumerable<string> notEmpty = postDaHood.Where(hood => hood != "").Distinct();
+                IEnumerable<string> refacOutput = postDaHood.Where(hood => hood != "").Distinct();
 
-                //IEnumerable<string> noDups = notEmpty.Distinct();
-
-                foreach (var item in notEmpty)
+                foreach (var item in refacOutput)
                 {
                     Console.WriteLine(item);
                 }
