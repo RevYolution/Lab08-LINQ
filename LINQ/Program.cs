@@ -26,7 +26,7 @@ namespace LINQ
         /// </summary>
         static void AllHoods()
         {
-            using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
+            using (StreamReader reader = File.OpenText(filePath))
 
             {
                 JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
@@ -51,7 +51,7 @@ namespace LINQ
         /// </summary>
         static void NoEmptyStrings()
         {
-            using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
+            using (StreamReader reader = File.OpenText(filePath))
 
             {
                 JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
@@ -74,7 +74,7 @@ namespace LINQ
         /// </summary>
         static void OnlyDistinct()
         {
-            using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
+            using (StreamReader reader = File.OpenText(filePath))
 
             {
                 JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
