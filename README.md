@@ -26,3 +26,7 @@ Contained in the program is a JSON file that holds locaiton information for prop
 
 #### Shows all empty and duplicate data removed. 
 ![SingleNeighborhoods](https://github.com/RevYolution/Lab08-LINQ/blob/master/assets/NoDupsOutput.PNG)
+
+## Change Log
+
+1.1 Changed file path to allow for proper file loading. 
