@@ -10,7 +10,12 @@ namespace LINQ
 {
     class Program
     {
-        public static readonly string filePath = "../data.json";
+        //// Set path to grab file to current directory.
+        //string filePath = Environment.CurrentDirectory;
+        //// Set new path
+        //string newPath = Path.GetFullPath(Path.Combine(filePath, "../data.json"));
+
+        public static readonly string filePath = "../../../data.json";
         static void Main(string[] args)
         {
             Console.WriteLine("Neighborhoods of Manhattan");
@@ -98,7 +103,7 @@ namespace LINQ
         /// </summary>
         static void OutPutRefac()
         {
-            using (StreamReader reader = File.OpenText(@"C:\Users\RevYolution\source\repos\LINQ\LINQ\data.json"))
+            using (StreamReader reader = File.OpenText(filePath))
 
             {
                 JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
